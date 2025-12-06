@@ -1,0 +1,38 @@
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def create_node(self, name, admission, grades):
+        return {
+            "name": name,
+            "admission": admission,
+            "grades": grades,
+            "next": None
+        }
+    def insert(self, name, admission, grades):
+        new_node = self.create_node(name, admission, grades)
+
+        if self.head is None:
+            self.head = new_node
+            return
+
+        current = self.head
+        while current["next"] is not None:
+            current = current["next"]
+
+        current["next"] = new_node
+
+    def display(self):
+        current = self.head
+        while current is not None:
+            print("Name:", current["name"])
+            print("Admission:", current["admission"])
+            print("Grades:", current["grades"])
+            print("---------------")
+            current = current["next"]
+
+("Sam", "CIT/00001/24", {"OOP2": "A", "DBMS": "B+", "Calculus": "A-"})
+("brian", "CIS/00087/25", {"OOP2": "B", "DBMS": "A", "Networking": "A-"})
+("Kevin", "CIM/00453/23", {"Visual Basic": "A", "Methodologies": "B", "HTML": "A"})
+
+.display()
